@@ -5,7 +5,7 @@
 ## Where we are
 
 - **Repo:** `shaquiranelson7-dev/figma-to-code-home-improvement-social-`
-- **Working branch:** `claude/setup-website-base-uEeAB` (develop + push here only)
+- **Working branch:** `claude/document-setup-status-ceSid` (develop + push here only)
 - **Setup done:** The full **website-base** Figma-to-Code starter template
   (from `Produlis/website-base`) is committed — `.claude/` (agents,
   commands, rules, skills, settings), `CLAUDE.md`, `DESIGN-SYSTEM.md`,
@@ -53,6 +53,6 @@ Follow the playbooks in `.claude/rules/phase-*.md`.
 ## Suggested kickoff message for the new session
 
 > "This repo has the website-base template on branch
-> `claude/setup-website-base-uEeAB`. Read STATUS.md. The Figma
+> `claude/document-setup-status-ceSid`. Read STATUS.md. The Figma
 > connector is now enabled — build the first page from
 > https://www.figma.com/design/sdLaVofRVJRIdYko2En4hi/upmind?node-id=1-178"
