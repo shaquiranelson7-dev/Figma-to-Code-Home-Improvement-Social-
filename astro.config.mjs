@@ -7,7 +7,6 @@ export default defineConfig({
   vite: {
     server: {
       allowedHosts: true,
-      hmr: { clientPort: 443 },
     },
   },
 });
