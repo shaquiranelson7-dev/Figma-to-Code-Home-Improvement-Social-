@@ -1,23 +1,31 @@
 ---
+import BaseLayout from "../layouts/BaseLayout.astro";
 import Hero from "../components/Hero.astro";
-import "../styles/global.css";
+import Partnership from "../components/Partnership.astro";
+import AboutUs from "../components/AboutUs.astro";
+import Services from "../components/Services.astro";
+import HowWeWork from "../components/HowWeWork.astro";
+import Testimonials from "../components/Testimonials.astro";
+import Pricing from "../components/Pricing.astro";
+import Blogs from "../components/Blogs.astro";
+import CTA from "../components/CTA.astro";
+import Footer from "../components/Footer.astro";
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width, initial-scale=1" />
-		<meta name="generator" content={Astro.generator} />
-		<meta
-			name="description"
-			content="Upmind helps startups and growing teams validate ideas, scale products, and make data-driven decisions."
-		/>
-		<title>Upmind — Clear insights. Real strategy. Sustainable growth.</title>
-	</head>
-	<body>
-		<main>
-			<Hero />
-		</main>
-	</body>
-</html>
+<BaseLayout
+  title="Upmind — Clear insights. Real strategy. Sustainable growth."
+  description="Upmind helps startups and growing teams validate ideas, scale products, and make data-driven decisions."
+>
+  <Hero />
+  <main id="main">
+    <Partnership />
+    <AboutUs />
+    <Services />
+    <HowWeWork />
+    <Testimonials />
+    <Pricing />
+    <Blogs />
+    <CTA />
+  </main>
+  <Footer />
+</BaseLayout>
