@@ -1,0 +1,249 @@
+---
+// Blogs section — Upmind landing page
+// Built from Figma file sdLaVofRVJRIdYko2En4hi, node 1:553
+
+const articles = [
+  {
+    src: "/assets/images/blog-predictive-analytics-1.png",
+    alt: "Computer monitor on a desk displaying analytics charts",
+    date: "Nov 28, 2025",
+    title: "Turning Data into Strategy: The Power of Predictive Analytics",
+  },
+  {
+    src: "/assets/images/blog-ai-streamline.png",
+    alt: "Two people having a conversation in a sunlit room",
+    date: "Nov 28, 2025",
+    title: "5 Ways AI Can Streamline Business Operations",
+  },
+  {
+    src: "/assets/images/blog-human-machine.png",
+    alt: "Person standing in soft light with eyes closed",
+    date: "Nov 28, 2025",
+    title: "Human + Machine: Finding the Perfect Balance",
+  },
+  {
+    src: "/assets/images/blog-predictive-analytics-2.png",
+    alt: "Person working at a desk in front of a code editor",
+    date: "Nov 28, 2025",
+    title: "Turning Data into Strategy: The Power of Predictive Analytics",
+  },
+];
+---
+
+<section class="blogs">
+  <div class="blogs__inner container">
+    <div class="blogs__intro">
+      <div class="blogs__tag">
+        <span class="blogs__tag-dot" aria-hidden="true"></span>
+        <span class="blogs__tag-label">Blog and articles</span>
+      </div>
+      <h2 class="blogs__title">Latest insights and trends</h2>
+      <p class="blogs__subtitle">
+        Whether you&rsquo;re optimizing today or building for tomorrow  we help you
+        move faster with confidence.
+      </p>
+    </div>
+
+    <div class="blogs__list">
+      {
+        articles.map((article) => (
+          <article class="blog-card">
+            <div class="blog-card__thumb">
+              <img
+                src={article.src}
+                alt={article.alt}
+                width="276"
+                height="200"
+                loading="lazy"
+              />
+            </div>
+            <div class="blog-card__body">
+              <p class="blog-card__date">{article.date}</p>
+              <h3 class="blog-card__title">{article.title}</h3>
+            </div>
+          </article>
+        ))
+      }
+    </div>
+  </div>
+</section>
+
+<style>
+  .blogs {
+    width: 100%;
+    background-color: #f7f9f2;
+  }
+
+  .blogs__inner {
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    gap: 1.5em;
+    padding-block: 6.25em;
+    padding-inline: var(--container-padding);
+  }
+
+  /* Intro column */
+  .blogs__intro {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.75em;
+    width: 29.75em;
+    flex-shrink: 0;
+  }
+
+  .blogs__tag {
+    display: flex;
+    align-items: center;
+    gap: 0.5em;
+  }
+
+  .blogs__tag-dot {
+    width: 0.25em;
+    height: 0.25em;
+    border-radius: 50%;
+    background-color: var(--color-text-primary);
+    flex-shrink: 0;
+  }
+
+  .blogs__tag-label {
+    font-family: var(--font-mono);
+    font-weight: 400;
+    font-size: 0.875em;
+    line-height: 1.429;
+    letter-spacing: 1.68px;
+    text-transform: uppercase;
+    color: var(--color-text-primary);
+    white-space: nowrap;
+  }
+
+  .blogs__title {
+    font-family: var(--font-heading);
+    font-weight: 400;
+    font-size: 4em;
+    line-height: 1.125;
+    letter-spacing: -2.56px;
+    color: var(--color-text-primary);
+    margin: 0;
+  }
+
+  .blogs__subtitle {
+    font-family: var(--font-body);
+    font-weight: 400;
+    font-size: 1em;
+    line-height: 1.5;
+    letter-spacing: -0.32px;
+    color: var(--color-text-secondary);
+    width: 24.5em;
+    max-width: 100%;
+    margin: 0;
+  }
+
+  /* Card list column */
+  .blogs__list {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5em;
+    flex: 1 0 0;
+    min-width: 0;
+  }
+
+  .blog-card {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1.5em;
+    padding: 1em;
+    background-color: #e6ecd6;
+    border-radius: 0.75em;
+    overflow: hidden;
+    width: 100%;
+  }
+
+  .blog-card__thumb {
+    width: 17.25em;
+    height: 12.5em;
+    flex-shrink: 0;
+    border-radius: 0.5em;
+    overflow: hidden;
+    background-color: #dedede;
+  }
+
+  .blog-card__thumb img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 0.5em;
+    display: block;
+  }
+
+  .blog-card__body {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1.5em;
+    flex: 1 0 0;
+    min-width: 0;
+    padding: 1.5em;
+  }
+
+  .blog-card__date {
+    font-family: var(--font-mono);
+    font-weight: 400;
+    font-size: 0.875em;
+    line-height: 1.429;
+    letter-spacing: 1.68px;
+    text-transform: uppercase;
+    color: var(--color-text-primary);
+    white-space: nowrap;
+    margin: 0;
+  }
+
+  .blog-card__title {
+    font-family: var(--font-heading);
+    font-weight: 400;
+    font-size: 1.5em;
+    line-height: 1.333;
+    letter-spacing: -0.96px;
+    color: var(--color-text-primary);
+    margin: 0;
+  }
+
+  /* Responsive — layout only */
+  @media (max-width: 991px) {
+    .blogs__inner {
+      flex-direction: column;
+      align-items: stretch;
+    }
+
+    .blogs__intro {
+      width: 100%;
+    }
+
+    .blogs__subtitle {
+      width: 100%;
+    }
+  }
+
+  @media (max-width: 767px) {
+    .blog-card {
+      flex-direction: column;
+      align-items: stretch;
+    }
+
+    .blog-card__thumb {
+      width: 100%;
+    }
+
+    .blog-card__body {
+      padding: 1em 0.5em;
+    }
+  }
+
+  @media (max-width: 479px) {
+    .blog-card__body {
+      gap: 1em;
+    }
+  }
+</style>

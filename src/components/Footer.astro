@@ -1,0 +1,284 @@
+---
+// Footer — Upmind landing page
+// Built from Figma node 2:5448 (file sdLaVofRVJRIdYko2En4hi). Content hardcoded.
+
+const columns = [
+  {
+    heading: "Pages",
+    links: ["Home V.1", "Home V.2", "Home V.3", "About V.1"],
+  },
+  {
+    heading: "Pages",
+    links: ["About V.2", "About V.3", "Services", "Blogs"],
+  },
+  {
+    heading: "Pages",
+    links: ["Contact V.1", "Contact V.2", "Contact V.3"],
+  },
+];
+
+const socials = [
+  { name: "Instagram", src: "/assets/images/icon-instagram.svg" },
+  { name: "Facebook", src: "/assets/images/icon-facebook.svg" },
+  { name: "LinkedIn", src: "/assets/images/icon-linkedin.svg" },
+  { name: "X (Twitter)", src: "/assets/images/icon-twitter-x.svg" },
+];
+---
+
+<footer class="footer">
+  <div class="footer__inner container">
+    <div class="footer__top">
+      <a class="footer__logo" href="#" aria-label="Upmind home">
+        <img
+          class="footer__logo-icon"
+          src="/assets/images/logo-upmind.svg"
+          alt=""
+          width="28"
+          height="28"
+        />
+        <span class="footer__logo-text">Upmind</span>
+      </a>
+
+      <div class="footer__columns">
+        {
+          columns.map((col) => (
+            <nav class="footer__col" aria-label={col.heading}>
+              <p class="footer__col-heading">{col.heading}</p>
+              <ul class="footer__list">
+                {col.links.map((link) => (
+                  <li>
+                    <a class="footer__link" href="#">
+                      {link}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </nav>
+          ))
+        }
+
+        <div class="footer__col footer__col--company">
+          <p class="footer__col-heading">Company</p>
+          <address class="footer__address">
+            752 New South Headr Rd<br />
+            Triple Bay SWFW 3148, New York
+          </address>
+          <ul class="footer__socials">
+            {
+              socials.map((s) => (
+                <li>
+                  <a class="footer__social" href="#" aria-label={s.name}>
+                    <img src={s.src} alt="" width="20" height="20" />
+                  </a>
+                </li>
+              ))
+            }
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <p class="footer__wordmark" aria-hidden="true">Upmind</p>
+  </div>
+</footer>
+
+<style>
+  .footer {
+    width: 100%;
+    background-color: var(--color-bg-dark);
+    overflow: hidden;
+  }
+
+  .footer__inner {
+    display: flex;
+    flex-direction: column;
+    gap: 4.5em; /* 72px */
+    padding-block: 3.25em; /* 52px */
+    padding-inline: var(--container-padding);
+  }
+
+  /* ---- Top section ---- */
+  .footer__top {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 2.5em;
+    width: 100%;
+  }
+
+  .footer__logo {
+    display: flex;
+    align-items: center;
+    gap: 0.75em; /* 12px */
+    width: 10em; /* 160px */
+    text-decoration: none;
+    flex-shrink: 0;
+  }
+
+  .footer__logo-icon {
+    display: block;
+    width: 1.75em; /* 28px */
+    height: 1.75em;
+  }
+
+  .footer__logo-text {
+    font-family: var(--font-heading);
+    font-weight: 600;
+    font-size: 1.25em; /* 20px */
+    line-height: normal;
+    letter-spacing: -1.2px;
+    color: var(--color-text-accent);
+  }
+
+  .footer__columns {
+    display: flex;
+    align-items: flex-start;
+    gap: 2.5em; /* 40px */
+    flex-shrink: 0;
+  }
+
+  .footer__col {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25em; /* 4px */
+  }
+
+  .footer__col-heading {
+    font-family: var(--font-mono);
+    font-weight: 400;
+    font-size: 1em; /* 16px */
+    line-height: 1.5;
+    letter-spacing: 2.56px;
+    text-transform: uppercase;
+    color: var(--color-text-accent);
+    padding: 0.75em; /* 12px */
+  }
+
+  .footer__list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.25em;
+  }
+
+  .footer__link {
+    display: inline-block;
+    font-family: var(--font-mono);
+    font-weight: 400;
+    font-size: 0.875em; /* 14px */
+    line-height: 1.4286; /* 20/14 */
+    letter-spacing: 1.68px;
+    text-transform: uppercase;
+    color: #d8ff85;
+    text-decoration: none;
+    padding: 0.75em; /* 12px */
+    transition: color var(--transition-fast);
+  }
+
+  .footer__link:hover {
+    color: var(--color-text-accent);
+  }
+
+  /* ---- Company column ---- */
+  .footer__col--company {
+    gap: 1.75em; /* 28px */
+    padding: 0.75em; /* 12px */
+  }
+
+  .footer__address {
+    font-family: var(--font-body);
+    font-weight: 400;
+    font-size: 0.875em; /* 14px */
+    line-height: 1.2857; /* 18/14 */
+    letter-spacing: -0.42px;
+    font-style: normal;
+    color: #d8ff85;
+    white-space: nowrap;
+  }
+
+  .footer__socials {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    gap: 0.75em; /* 12px */
+  }
+
+  .footer__social {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 2.25em; /* 36px */
+    height: 2.25em;
+    border-radius: 2.25em; /* 36px */
+    background-color: rgba(183, 254, 2, 0.12);
+    transition: background-color var(--transition-fast);
+  }
+
+  .footer__social:hover {
+    background-color: rgba(183, 254, 2, 0.24);
+  }
+
+  .footer__social img {
+    display: block;
+    width: 1.25em; /* 20px */
+    height: 1.25em;
+  }
+
+  /* ---- Giant wordmark ---- */
+  .footer__wordmark {
+    font-family: var(--font-heading);
+    font-weight: 600;
+    font-size: 22.942em; /* 367.074px */
+    line-height: normal;
+    letter-spacing: -22.0244px;
+    color: var(--color-text-accent);
+    white-space: nowrap;
+    align-self: center;
+    margin: 0;
+  }
+
+  /* ---- Responsive (layout only) ---- */
+  @media (max-width: 991px) {
+    .footer__top {
+      flex-direction: column;
+      gap: 2.5em;
+    }
+
+    .footer__columns {
+      flex-wrap: wrap;
+      gap: 1.5em 2.5em;
+    }
+
+    .footer__wordmark {
+      font-size: 14em;
+    }
+  }
+
+  @media (max-width: 767px) {
+    .footer__columns {
+      gap: 1em 2em;
+    }
+
+    .footer__wordmark {
+      font-size: 9em;
+    }
+  }
+
+  @media (max-width: 479px) {
+    .footer__columns {
+      flex-direction: column;
+      gap: 0.5em;
+    }
+
+    .footer__address {
+      white-space: normal;
+    }
+
+    .footer__wordmark {
+      font-size: 5.5em;
+    }
+  }
+</style>

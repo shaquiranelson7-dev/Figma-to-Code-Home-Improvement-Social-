@@ -6,12 +6,12 @@
 /* Desktop */
 :root {
   --size-unit: 16; /* body font-size in design — no px */
-  --size-container-ideal: 1440; /* Figma frame width — set during Phase 0 */
+  --size-container-ideal: 1280; /* Figma frame width */
   --size-container-min: 992px;
   --size-container-max: 1440px;
   --size-container: clamp(var(--size-container-min), 100vw, var(--size-container-max));
   --size-font: calc(var(--size-container) / (var(--size-container-ideal) / var(--size-unit)));
-  --container-padding: 3.25em;
+  --container-padding: 3.25em; /* 52px on 1280 frame */
 }
 
 /* Tablet */
@@ -50,18 +50,21 @@
 
 :root {
   /* Colors */
-  --color-primary: #000000;
-  --color-accent: #000000;
+  --color-primary: #b7fe02;        /* lime accent / primary button */
+  --color-accent: #b7fe02;
   --color-bg-white: #ffffff;
-  --color-bg-dark: #000000;
-  --color-text-primary: #000000;
-  --color-text-secondary: #666666;
+  --color-bg-dark: #101604;        /* dark sections / dark button */
+  --color-bg-light: #f5f5f5;       /* subtle card / surface */
+  --color-text-primary: #000000;   /* heading dark */
+  --color-text-secondary: #595959; /* body dark */
   --color-text-white: #ffffff;
-  --color-border: #e0e0e0;
+  --color-text-accent: #b7fe02;
+  --color-border: #e6e6e6;
 
-  /* Typography — update font imports in your root layout file */
-  --font-heading: system-ui, sans-serif;
-  --font-body: system-ui, sans-serif;
+  /* Typography — Geist via Google Fonts, imported in BaseLayout */
+  --font-heading: "Geist", system-ui, sans-serif;
+  --font-body: "Geist", system-ui, sans-serif;
+  --font-mono: "Geist Mono", ui-monospace, monospace;
 
   /* Spacing scale */
   --spacing-xs: 0.25em;   /* 4px */
@@ -191,25 +194,59 @@ p {
   text-transform: uppercase;
 }
 
-/* Button — primary dark */
+/* Eyebrow tag — dot + uppercase mono label */
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75em;
+  font-family: var(--font-mono);
+  font-size: 0.875em;
+  font-weight: 400;
+  line-height: 1.429;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+.eyebrow::before {
+  content: "";
+  width: 0.25em;
+  height: 0.25em;
+  border-radius: 50%;
+  background-color: currentColor;
+  flex-shrink: 0;
+}
+
+/* Buttons */
 .btn {
   display: inline-flex;
   align-items: center;
   justify-content: center;
+  gap: 0.5em;
   width: fit-content;
-  height: 3em;
-  padding-inline: 1em;
-  background-color: var(--color-bg-dark);
-  color: var(--color-text-white);
+  height: 2.75em;
+  padding-inline: 1.5em;
   font-family: var(--font-body);
   font-size: 1em;
-  font-weight: 400;
-  line-height: 1.5;
+  font-weight: 500;
+  line-height: 1.25;
   border: none;
-  border-radius: var(--radius-sm);
+  border-radius: 0.5em;
   cursor: pointer;
   white-space: nowrap;
   text-decoration: none;
+  transition: opacity var(--transition-fast);
+}
+.btn-primary {
+  background-color: var(--color-primary);
+  color: var(--color-bg-dark);
+}
+.btn-dark {
+  background-color: var(--color-bg-dark);
+  color: var(--color-text-white);
+}
+.btn-outline {
+  background-color: transparent;
+  color: currentColor;
+  border: 1px solid currentColor;
 }
 
 /* ==========================================================================

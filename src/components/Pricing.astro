@@ -1,0 +1,370 @@
+---
+const plans = [
+  {
+    icon: "/assets/images/icon-star-rounded.svg",
+    iconAlt: "Star icon",
+    name: "Starter Plan",
+    description: "Best for small teams or short-term guidance",
+    features: [
+      "Strategy session (monthly)",
+      "Process review",
+      "Actionable recommendations",
+    ],
+    price: "$99.00",
+    oldPrice: "$199.00",
+    cta: "Get started",
+  },
+  {
+    icon: "/assets/images/icon-thunder.svg",
+    iconAlt: "Lightning bolt icon",
+    name: "Growth Plan",
+    description: "Ideal for teams improving operations or scaling up",
+    features: [
+      "Full strategy development",
+      "Workflow optimization",
+      "Monthly progress reviews",
+    ],
+    price: "$499.00",
+    oldPrice: "$699.00",
+    cta: "Get started",
+  },
+];
+---
+
+<section class="pricing">
+  <div class="pricing__inner container">
+    <div class="pricing__header">
+      <div class="pricing__tag">
+        <img
+          class="pricing__tag-dot"
+          src="/assets/images/pricing-tag-dot.svg"
+          alt=""
+          width="4"
+          height="4"
+          aria-hidden="true"
+        />
+        <span class="eyebrow pricing__eyebrow">Pricing</span>
+      </div>
+      <h2 class="pricing__title">Flexible plans for every business</h2>
+      <p class="pricing__subtitle">
+        Clear pricing, no hidden fees. Choose the plan that works best for your
+        goals.
+      </p>
+    </div>
+
+    <ul class="pricing__grid">
+      {
+        plans.map((plan) => (
+          <li class="plan-card">
+            <div class="plan-card__top">
+              <div class="plan-card__icon">
+                <img
+                  src={plan.icon}
+                  alt={plan.iconAlt}
+                  width="24"
+                  height="24"
+                  loading="lazy"
+                />
+              </div>
+              <div class="plan-card__heading">
+                <p class="plan-card__name">{plan.name}</p>
+                <h3 class="plan-card__desc">{plan.description}</h3>
+              </div>
+              <ul class="plan-card__features">
+                {plan.features.map((feature) => (
+                  <li class="plan-card__feature">
+                    <img
+                      class="plan-card__check"
+                      src="/assets/images/icon-check-circle.svg"
+                      alt=""
+                      width="24"
+                      height="24"
+                      aria-hidden="true"
+                      loading="lazy"
+                    />
+                    <span>{feature}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+            <div class="plan-card__footer">
+              <div class="plan-card__price">
+                <span class="plan-card__price-now">{plan.price}</span>
+                <span class="plan-card__price-old">{plan.oldPrice}</span>
+              </div>
+              <a class="plan-card__cta" href="#contact">
+                {plan.cta}
+              </a>
+            </div>
+          </li>
+        ))
+      }
+    </ul>
+  </div>
+</section>
+
+<style>
+  .pricing {
+    width: 100%;
+    background-color: var(--color-bg-dark);
+  }
+
+  .pricing__inner {
+    display: flex;
+    flex-direction: column;
+    gap: 4em;
+    align-items: center;
+    padding-block: 4.5em;
+    padding-inline: var(--container-padding);
+  }
+
+  .pricing__header {
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+    align-items: flex-start;
+    width: 100%;
+  }
+
+  .pricing__tag {
+    display: flex;
+    gap: 0.5em;
+    align-items: center;
+  }
+
+  .pricing__tag-dot {
+    display: block;
+    width: 0.25em;
+    height: 0.25em;
+  }
+
+  .pricing__eyebrow {
+    color: var(--color-text-accent);
+  }
+
+  .pricing__title {
+    margin: 0;
+    width: 100%;
+    font-family: var(--font-heading);
+    font-weight: 400;
+    font-size: 3em;
+    line-height: 1.167;
+    letter-spacing: -1.92px;
+    color: var(--color-text-accent);
+  }
+
+  .pricing__subtitle {
+    margin: 0;
+    width: 100%;
+    font-family: var(--font-body);
+    font-weight: 400;
+    font-size: 1em;
+    line-height: 1.5;
+    letter-spacing: -0.32px;
+    color: rgba(183, 254, 2, 0.8);
+  }
+
+  .pricing__grid {
+    display: flex;
+    gap: 1.5em;
+    align-items: stretch;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .plan-card {
+    display: flex;
+    flex: 1 0 0;
+    flex-direction: column;
+    gap: 4em;
+    justify-content: space-between;
+    min-width: 0;
+    padding: 1.5em;
+    background-color: #f7f9f2;
+    border-radius: 0.75em;
+  }
+
+  .plan-card__top {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5em;
+    align-items: flex-start;
+    width: 100%;
+  }
+
+  .plan-card__icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.75em;
+    background-color: var(--color-bg-dark);
+    border-radius: 0.75em;
+  }
+
+  .plan-card__icon img {
+    display: block;
+    width: 1.5em;
+    height: 1.5em;
+  }
+
+  .plan-card__heading {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5em;
+    align-items: flex-start;
+    width: 100%;
+  }
+
+  .plan-card__name {
+    margin: 0;
+    font-family: var(--font-mono);
+    font-weight: 400;
+    font-size: 0.875em;
+    line-height: 1.429;
+    letter-spacing: 1.68px;
+    text-transform: uppercase;
+    color: var(--color-text-primary);
+  }
+
+  .plan-card__desc {
+    margin: 0;
+    font-family: var(--font-heading);
+    font-weight: 400;
+    font-size: 2em;
+    line-height: 1.25;
+    letter-spacing: -1.6px;
+    color: var(--color-text-primary);
+  }
+
+  .plan-card__features {
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+    align-items: flex-start;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .plan-card__feature {
+    display: flex;
+    gap: 0.75em;
+    align-items: flex-start;
+    width: 100%;
+    font-family: var(--font-body);
+    font-weight: 400;
+    font-size: 1em;
+    line-height: 1.5;
+    letter-spacing: -0.32px;
+    color: var(--color-text-secondary);
+  }
+
+  .plan-card__check {
+    display: block;
+    flex-shrink: 0;
+    width: 1.5em;
+    height: 1.5em;
+  }
+
+  .plan-card__footer {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    width: 100%;
+  }
+
+  .plan-card__price {
+    display: flex;
+    flex: 1 0 0;
+    gap: 0.5em;
+    align-items: flex-end;
+    min-width: 0;
+  }
+
+  .plan-card__price-now {
+    font-family: var(--font-heading);
+    font-weight: 400;
+    font-size: 2em;
+    line-height: 1.25;
+    letter-spacing: -1.6px;
+    color: var(--color-text-primary);
+  }
+
+  .plan-card__price-old {
+    padding-block: 0.375em;
+    font-family: var(--font-heading);
+    font-weight: 400;
+    font-size: 1em;
+    line-height: 1.5;
+    letter-spacing: -0.48px;
+    text-decoration: line-through;
+    color: #a8a8a8;
+  }
+
+  .plan-card__cta {
+    display: flex;
+    flex: 1 0 0;
+    gap: 0.5em;
+    align-items: center;
+    justify-content: center;
+    min-width: 0;
+    height: 2.75em;
+    padding-block: 0.25em;
+    padding-inline: 1.5em;
+    background-color: var(--color-bg-dark);
+    border-radius: 2em;
+    font-family: var(--font-mono);
+    font-weight: 400;
+    font-size: 0.875em;
+    line-height: 1.429;
+    letter-spacing: 1.68px;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: var(--color-text-accent);
+    transition: opacity var(--transition-fast);
+  }
+
+  .plan-card__cta:hover {
+    opacity: 0.85;
+  }
+
+  @media (max-width: 991px) {
+    .plan-card__desc,
+    .plan-card__price-now {
+      font-size: 1.75em;
+    }
+  }
+
+  @media (max-width: 767px) {
+    .pricing__inner {
+      padding-block: 4em;
+    }
+
+    .pricing__title {
+      font-size: 2.5em;
+    }
+
+    .pricing__grid {
+      flex-direction: column;
+    }
+  }
+
+  @media (max-width: 479px) {
+    .pricing__title {
+      font-size: 2em;
+    }
+
+    .plan-card__footer {
+      flex-direction: column;
+      gap: 1.5em;
+    }
+
+    .plan-card__cta {
+      flex: 0 0 auto;
+      width: 100%;
+    }
+  }
+</style>

@@ -1,0 +1,234 @@
+---
+// Testimonials section — Upmind landing page
+// Built from Figma file sdLaVofRVJRIdYko2En4hi, node 1:461
+---
+
+<section class="testimonials">
+  <div class="testimonials__inner container">
+    <div class="testimonials__tag">
+      <img
+        class="testimonials__tag-dot"
+        src="/assets/images/testimonial-dot.svg"
+        alt=""
+        width="4"
+        height="4"
+      />
+      <span class="testimonials__tag-label">testimonials</span>
+    </div>
+
+    <figure class="testimonials__figure">
+      <blockquote class="testimonials__quote">
+        "They brought clarity to complex problems, breaking down barriers and
+        delivering innovative solutions.”
+      </blockquote>
+
+      <figcaption class="testimonials__author">
+        <span class="testimonials__avatar">
+          <img
+            src="/assets/images/testimonial-john-doe.png"
+            alt="John Doe, CEO of Tech Innovations"
+            width="60"
+            height="60"
+            loading="lazy"
+          />
+        </span>
+        <span class="testimonials__author-meta">
+          <span class="testimonials__author-name">John Doe</span>
+          <span class="testimonials__author-title">CEO, Tech Innovations</span>
+        </span>
+      </figcaption>
+    </figure>
+
+    <div class="testimonials__nav">
+      <button
+        type="button"
+        class="testimonials__btn testimonials__btn--prev"
+        aria-label="Previous testimonial"
+      >
+        <img
+          class="testimonials__arrow"
+          src="/assets/images/icon-arrow-up-dark.svg"
+          alt=""
+          width="24"
+          height="24"
+        />
+      </button>
+      <button
+        type="button"
+        class="testimonials__btn testimonials__btn--next"
+        aria-label="Next testimonial"
+      >
+        <img
+          class="testimonials__arrow"
+          src="/assets/images/icon-arrow-up-dark.svg"
+          alt=""
+          width="24"
+          height="24"
+        />
+      </button>
+    </div>
+  </div>
+</section>
+
+<style>
+  .testimonials {
+    width: 100%;
+    background-color: #eef3e4;
+    padding-block: 6.25em; /* 100px */
+  }
+
+  .testimonials__inner {
+    padding-inline: var(--container-padding);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2.5em; /* 40px */
+    text-align: center;
+  }
+
+  /* Tag */
+  .testimonials__tag {
+    display: flex;
+    align-items: center;
+    gap: 0.5em; /* 8px */
+  }
+
+  .testimonials__tag-dot {
+    width: 0.25em; /* 4px */
+    height: 0.25em;
+    flex-shrink: 0;
+  }
+
+  .testimonials__tag-label {
+    font-family: var(--font-mono);
+    font-weight: 400;
+    font-size: 0.875em; /* 14px */
+    line-height: 1.4286; /* 20 / 14 */
+    letter-spacing: 1.68px;
+    text-transform: uppercase;
+    color: var(--color-text-primary);
+    white-space: nowrap;
+  }
+
+  /* Figure */
+  .testimonials__figure {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2.5em; /* 40px */
+    margin: 0;
+  }
+
+  .testimonials__quote {
+    margin: 0;
+    width: 57.5em; /* 920px */
+    max-width: 100%;
+    font-family: var(--font-heading);
+    font-weight: 400;
+    font-size: 3em; /* 48px */
+    line-height: 1.1667; /* 56 / 48 */
+    letter-spacing: -1.92px;
+    color: var(--color-text-primary);
+    text-align: center;
+  }
+
+  /* Author */
+  .testimonials__author {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75em; /* 12px */
+  }
+
+  .testimonials__avatar {
+    display: block;
+    width: 3.75em; /* 60px */
+    height: 3.75em;
+    flex-shrink: 0;
+    border-radius: 3.75em;
+    overflow: hidden;
+    background-color: #dedede;
+  }
+
+  .testimonials__avatar img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .testimonials__author-meta {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.25em; /* 4px */
+    white-space: nowrap;
+  }
+
+  .testimonials__author-name {
+    font-family: var(--font-heading);
+    font-weight: 400;
+    font-size: 1.25em; /* 20px */
+    line-height: 1.4; /* 28 / 20 */
+    letter-spacing: -1.2px;
+    color: var(--color-text-primary);
+  }
+
+  .testimonials__author-title {
+    font-family: var(--font-body);
+    font-weight: 400;
+    font-size: 1em; /* 16px */
+    line-height: 1.5; /* 24 / 16 */
+    letter-spacing: -0.32px;
+    color: var(--color-text-secondary);
+  }
+
+  /* Nav buttons */
+  .testimonials__nav {
+    display: flex;
+    align-items: center;
+    gap: 1em; /* 16px */
+  }
+
+  .testimonials__btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 2.5em; /* 40px */
+    height: 2.5em;
+    padding: 0.5em 0.75em; /* 8px 12px */
+    border: 0;
+    border-radius: 0.75em; /* 12px */
+    background-color: var(--color-bg-dark);
+    cursor: pointer;
+  }
+
+  .testimonials__btn--prev {
+    transform: rotate(180deg) scaleY(-1);
+  }
+
+  .testimonials__arrow {
+    display: block;
+    width: 1.5em; /* 24px */
+    height: 1.5em;
+    flex-shrink: 0;
+  }
+
+  /* ===== Responsive (layout only) ===== */
+  @media screen and (max-width: 991px) {
+    .testimonials__quote {
+      width: 100%;
+    }
+  }
+
+  @media screen and (max-width: 479px) {
+    .testimonials__author {
+      flex-direction: column;
+      gap: 0.75em;
+    }
+    .testimonials__author-meta {
+      align-items: center;
+      text-align: center;
+    }
+  }
+</style>

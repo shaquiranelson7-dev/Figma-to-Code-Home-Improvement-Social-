@@ -1,0 +1,212 @@
+---
+const services = [
+  {
+    icon: "/assets/images/icon-strategy-operations.svg",
+    title: "Strategy & Operations",
+    description:
+      "Build a strong foundation with strategic planning, operational optimization, and process improvements.",
+  },
+  {
+    icon: "/assets/images/icon-digital-transformation.svg",
+    title: "Digital Transformation",
+    description:
+      "Leverage technology to modernize workflows, improve customer experience, and create scalable digital ecosystems",
+  },
+  {
+    icon: "/assets/images/icon-product-innovation.svg",
+    title: "Product & Innovation",
+    description:
+      "From ideation to execution, we guide your team in building products that customers love and businesses can scale.",
+  },
+];
+---
+
+<section class="services">
+  <div class="services__inner container">
+    <div class="services__header">
+      <div class="services__intro">
+        <p class="eyebrow">Services</p>
+        <h2 class="services__title">Expertise built<br />on insight &amp; experience</h2>
+        <p class="services__subtitle">
+          We deliver strategic solutions grounded in research, experience, and industry best practices.
+        </p>
+      </div>
+      <a class="btn btn-dark services__cta" href="#services">View Services</a>
+    </div>
+
+    <ul class="services__grid">
+      {
+        services.map((service) => (
+          <li class="service-card">
+            <div class="service-card__icon">
+              <img
+                src={service.icon}
+                alt=""
+                width="24"
+                height="24"
+                aria-hidden="true"
+                loading="lazy"
+              />
+            </div>
+            <h3 class="service-card__title">{service.title}</h3>
+            <p class="service-card__desc">{service.description}</p>
+          </li>
+        ))
+      }
+    </ul>
+  </div>
+</section>
+
+<style>
+  .services {
+    width: 100%;
+    background-color: var(--color-bg-light);
+  }
+
+  .services__inner {
+    display: flex;
+    flex-direction: column;
+    gap: 4em;
+    padding-block: 6.25em;
+    padding-inline: var(--container-padding);
+  }
+
+  .services__header {
+    display: flex;
+    gap: 4em;
+    align-items: flex-end;
+    width: 100%;
+  }
+
+  .services__intro {
+    display: flex;
+    flex: 1 0 0;
+    flex-direction: column;
+    gap: 0.75em;
+    align-items: flex-start;
+    min-width: 0;
+  }
+
+  .services__title {
+    margin: 0;
+    font-family: var(--font-heading);
+    font-weight: 400;
+    font-size: 4em;
+    line-height: 1.125;
+    letter-spacing: -2.56px;
+    color: var(--color-text-primary);
+  }
+
+  .services__subtitle {
+    margin: 0;
+    font-family: var(--font-body);
+    font-weight: 400;
+    font-size: 1em;
+    line-height: 1.5;
+    letter-spacing: -0.32px;
+    color: var(--color-text-primary);
+  }
+
+  .services__cta {
+    flex-shrink: 0;
+  }
+
+  .services__grid {
+    display: flex;
+    gap: 1.5em;
+    align-items: stretch;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .service-card {
+    display: flex;
+    flex: 1 0 0;
+    flex-direction: column;
+    gap: 1em;
+    min-width: 0;
+    padding: 1em;
+    background-color: #e6ecd6;
+    border-radius: 0.75em;
+  }
+
+  .service-card__icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.75em;
+    margin-bottom: 2.1875em;
+    background-color: var(--color-bg-dark);
+    border-radius: 0.75em;
+  }
+
+  .service-card__icon img {
+    display: block;
+    width: 1.5em;
+    height: 1.5em;
+  }
+
+  .service-card__title {
+    margin: 0;
+    font-family: var(--font-heading);
+    font-weight: 400;
+    font-size: 1.5em;
+    line-height: 1.333;
+    letter-spacing: -0.96px;
+    color: var(--color-text-primary);
+  }
+
+  .service-card__desc {
+    margin: 0;
+    font-family: var(--font-body);
+    font-weight: 400;
+    font-size: 1em;
+    line-height: 1.5;
+    letter-spacing: -0.32px;
+    color: var(--color-text-secondary);
+  }
+
+  /* Tablet: header stacks, cards become 2-up */
+  @media (max-width: 991px) {
+    .services__header {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 2em;
+    }
+
+    .services__title {
+      font-size: 3.25em;
+    }
+
+    .services__grid {
+      flex-wrap: wrap;
+    }
+
+    .service-card {
+      flex: 1 1 calc(50% - 0.75em);
+    }
+  }
+
+  @media (max-width: 767px) {
+    .services__inner {
+      padding-block: 4em;
+    }
+
+    .services__title {
+      font-size: 2.75em;
+    }
+  }
+
+  /* Mobile: single column */
+  @media (max-width: 479px) {
+    .services__title {
+      font-size: 2.25em;
+    }
+
+    .service-card {
+      flex: 1 1 100%;
+    }
+  }
+</style>

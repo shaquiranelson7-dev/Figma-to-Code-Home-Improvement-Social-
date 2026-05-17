@@ -1,0 +1,255 @@
+---
+// Navbar — transparent overlay sitting over the Hero background.
+// Built strictly from Figma node 3475:1368 (file sdLaVofRVJRIdYko2En4hi).
+const links = [
+  { label: "Home", href: "#" },
+  { label: "Services", href: "#" },
+  { label: "About us", href: "#" },
+];
+---
+
+<nav class="navbar" aria-label="Primary">
+  <div class="navbar__inner container">
+    <a class="navbar__logo" href="#" aria-label="Upmind home">
+      <img
+        class="navbar__logo-icon"
+        src="/assets/images/logo-upmind.svg"
+        alt=""
+        width="28"
+        height="28"
+        aria-hidden="true"
+      />
+      <span class="navbar__logo-text">Upmind</span>
+    </a>
+
+    <button
+      class="navbar__toggle"
+      type="button"
+      aria-expanded="false"
+      aria-controls="navbar-menu"
+      aria-label="Open menu"
+    >
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+
+    <div class="navbar__menu" id="navbar-menu">
+      <ul class="navbar__links">
+        {
+          links.map((link) => (
+            <li>
+              <a class="navbar__link" href={link.href}>
+                {link.label}
+              </a>
+            </li>
+          ))
+        }
+        <li>
+          <a class="navbar__link navbar__link--more" href="#">
+            More Links
+            <img
+              class="navbar__link-arrow"
+              src="/assets/images/icon-arrow-up.svg"
+              alt=""
+              width="14"
+              height="14"
+              aria-hidden="true"
+            />
+          </a>
+        </li>
+      </ul>
+
+      <a class="navbar__cta" href="#">Buy template</a>
+    </div>
+  </div>
+</nav>
+
+<style>
+  .navbar {
+    position: absolute;
+    inset: 0 0 auto 0;
+    z-index: 10;
+    width: 100%;
+  }
+
+  .navbar__inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-block: 1em;
+  }
+
+  /* Logo */
+  .navbar__logo {
+    display: flex;
+    align-items: center;
+    gap: 0.75em;
+    width: 10em;
+    text-decoration: none;
+  }
+
+  .navbar__logo-icon {
+    display: block;
+    width: 1.75em;
+    height: 1.75em;
+  }
+
+  .navbar__logo-text {
+    font-family: var(--font-heading);
+    font-size: 1.25em;
+    font-weight: 600;
+    line-height: 1;
+    letter-spacing: -1.2px;
+    color: var(--color-text-white);
+    white-space: nowrap;
+  }
+
+  /* Menu wrapper */
+  .navbar__menu {
+    display: flex;
+    align-items: center;
+    gap: 1.5em;
+  }
+
+  .navbar__links {
+    display: flex;
+    align-items: center;
+    gap: 0.5em;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .navbar__link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.625em;
+    height: 2.5em;
+    padding: 0.75em 1.25em;
+    border-radius: 3em;
+    font-family: var(--font-mono);
+    font-size: 0.875em;
+    font-weight: 400;
+    line-height: 1.429;
+    letter-spacing: 1.68px;
+    text-transform: uppercase;
+    color: var(--color-text-white);
+    text-decoration: none;
+    white-space: nowrap;
+  }
+
+  .navbar__link-arrow {
+    display: block;
+    width: 0.875em;
+    height: 0.875em;
+    transform: rotate(180deg);
+  }
+
+  /* CTA button */
+  .navbar__cta {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.75em 1.5em;
+    border-radius: 3em;
+    background-color: var(--color-bg-white);
+    color: var(--color-text-primary);
+    font-family: var(--font-mono);
+    font-size: 0.875em;
+    font-weight: 400;
+    line-height: 1.429;
+    letter-spacing: 1.68px;
+    text-transform: uppercase;
+    text-decoration: none;
+    white-space: nowrap;
+  }
+
+  /* Hamburger toggle — hidden on desktop */
+  .navbar__toggle {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    gap: 0.3125em;
+    width: 2.75em;
+    height: 2.75em;
+    padding: 0.625em;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+  }
+
+  .navbar__toggle span {
+    display: block;
+    width: 100%;
+    height: 2px;
+    background-color: var(--color-text-white);
+    border-radius: 2px;
+    transition: transform var(--transition-fast), opacity var(--transition-fast);
+  }
+
+  /* Tablet and below — collapse to hamburger menu */
+  @media (max-width: 991px) {
+    .navbar__inner {
+      flex-wrap: wrap;
+    }
+
+    .navbar__toggle {
+      display: flex;
+    }
+
+    .navbar__menu {
+      display: none;
+      flex-direction: column;
+      align-items: stretch;
+      gap: 0.75em;
+      width: 100%;
+      margin-top: 1em;
+      padding: 1em;
+      border-radius: 1em;
+      background-color: var(--color-bg-dark);
+    }
+
+    .navbar.is-open .navbar__menu {
+      display: flex;
+    }
+
+    .navbar__links {
+      flex-direction: column;
+      align-items: stretch;
+      gap: 0.25em;
+      width: 100%;
+    }
+
+    .navbar__link {
+      width: 100%;
+      height: auto;
+    }
+
+    .navbar__cta {
+      width: 100%;
+    }
+
+    .navbar.is-open .navbar__toggle span:nth-child(1) {
+      transform: translateY(0.4375em) rotate(45deg);
+    }
+
+    .navbar.is-open .navbar__toggle span:nth-child(2) {
+      opacity: 0;
+    }
+
+    .navbar.is-open .navbar__toggle span:nth-child(3) {
+      transform: translateY(-0.4375em) rotate(-45deg);
+    }
+  }
+</style>
+
+<script>
+  const nav = document.querySelector(".navbar");
+  const toggle = nav?.querySelector(".navbar__toggle");
+  toggle?.addEventListener("click", () => {
+    const open = nav?.classList.toggle("is-open");
+    toggle.setAttribute("aria-expanded", String(!!open));
+    toggle.setAttribute("aria-label", open ? "Close menu" : "Open menu");
+  });
+</script>
